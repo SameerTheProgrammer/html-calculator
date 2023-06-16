@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.calculator{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ecf0ec;
+}
+.calculator .calculator-container{
+    padding: 20px;
+    display: grid;
+    gap: 5px;
+    background-color: #996868;
+    grid-template-columns: repeat(5,66px);
+    box-shadow:12px 12px 20px #3b3d3f,
+             -12px -12px 20px #ffffff;
+    border-radius: 10px;
+    
+    
+}
+.calculator .calculator-container button{
+    
+    height: 50px;
+    border: none;
+    width: 100%;
+    padding: 5p;
+    outline: none;
+    box-shadow: 6px 6px 9px #00000020,
+            -6px -6px 9px #7e5555;
+    font-size: 25px;
+    transition: all 0.2s ease;
+}
+.calculator .calculator-container button:active {
+    background-color: #d7dee6;
+    border: 5px solid  #d7dee6;
+    
+}
+.calculator .calculator-container .ebtn{
+    height: 40px;
+    background-color: #c3eeee;
+}
+.clear{
+    grid-column: span 2;
+    
+}
+.equal{
+    grid-column: span 2;
+    width: 85%;
+    border-radius: 5px;
+    background-color: aqua;
+}
+input{
+    width:100%;
+    grid-column: span 5;
+    text-align: right;
+    height: 75px;
+    outline: none;
+    border: none;
+    font-size: 25px;
+    padding-right: 10px;
+    margin-top:10px ;
+    background-color: #ecf0ec;   
+    margin-bottom: 20px;
+    box-shadow: inset 8px 8px 8px #636464,
+                inset -8px -8px 8px #ffffff;
+       
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+ /* Firefox */
+input[type=number] {
+  appearance: textfield;
+}
+
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="calculator-container">
+            
+            <input type="number"id="textarea" placeholder="0">
+            <button class="operator ebtn" onclick="del()">Del⌫</button>
+            <button class="operator ebtn">M+</button>
+            <button class="operator ebtn">MR</button>
+            <button class="operator ebtn clear"onclick="clr()">C</button>
+            <button class="operator ebtn">1/10</button>
+            <button class="operator ebtn">sin</button>
+            <button class="operator ebtn">cos</button>
+            <button class="operator ebtn">tan</button>
+            <button class="operator ebtn">&pi;</button>
+            <button class="operator ebtn">X <sup>y</sup></button>
+            <button class="operator ebtn"><sup>y</sup>&radic;X</button>
+            <button class="operator ebtn"><sup>3</sup>&radic;X</button>
+            <button class="operator ebtn">(</button>
+            <button class="operator ebtn">)</button>
+
+
+            
+            
+            <button class="number" value="7" onclick="calculate(7)">7</button>
+            <button class="number" value="8" onclick="calculate(8)">8</button>
+            <button class="number" value="9" onclick="calculate(9)">9</button>
+            <button class="operator" value="*" onclick="calculate('*')">&times;</button>
+            <button class="operator" value="/" onclick="calculate('/')">&#247;</button>
+            <button class="number" value="4" onclick="calculate(4)">4</button>
+            <button class="number" value="5" onclick="calculate(5)">5</button>
+            <button class="number" value="6" onclick="calculate(6)">6</button>
+            <button class="operator" value="-" onclick="calculate('-')">-</button>
+            <button class="operator" value="pre" onclick="calculate('%')">%</button>
+            <button class="number" value="1" onclick="calculate(1)">1</button>
+            <button class="number" value="2" onclick="calculate(2)">2</button>
+            <button class="number" id="3" onclick="calculate(3)">3</button>
+            <button class="operator" value="+" onclick="calculate('+')">+</button>
+            <button class="operator" value="clear" onclick="calculate('***')">x&#179;</button>
+            <button class="number" value="dot" onclick="calculate('.')">.</button>
+            <button class="number" value="0" onclick="calculate(0)">0</button>
+            <button class="operator equal" id="equ" onclick="Answer()">=</button>
+            <button class="operator" value="clear" onclick=" calculate('**')">x&#178;</button>
+            
+        </div>
+    </div>
+    <script>
+    let result= document.getElementById("textarea");
+
+        let calculate= (number)=>{
+            result.value+=number;
+        }
+        
+        
+        let Answer=()=>{
+            try {
+                result.value = eval(result.value)
+            } catch (err) {
+                alert("Invalid")
+            }
+        }
+        
+        clr= ()=>{
+            result.value="";
+        }
+        del= ()=>{
+            result.value=result.value.slice(0 , -1);
+        }</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

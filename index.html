@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="calculator">
+        <div class="calculator-container">
+
+            <input type="text" id="output-screen" placeholder="0">
+            <button class="operator ebtn" onclick="del()">Del⌫</button>
+            <button class="operator ebtn">M+</button>
+            <button class="operator ebtn">MR</button>
+            <button class="operator ebtn clear" onclick="clr()">C</button>
+            <button class="operator ebtn" onclick="cuberoot()"><sup>3</sup>&radic;X</button>
+            <button class="operator ebtn" onclick="sin()">sin</button>
+            <button class="operator ebtn" onclick="cos()">cos</button>
+            <button class="operator ebtn"onclick="tan()">tan</button>
+            <button class="operator ebtn" onclick="display(3.14)" >&pi;</button>
+            <button class="operator ebtn">X <sup>y</sup></button>
+            <button class="operator ebtn"><sup>y</sup>&radic;X</button>
+            <button class="operator ebtn" onclick="squareroot()"><sup>2</sup>&radic;X</button>
+            <button class="number ebtn" value="(" onclick="display('(')">(</button>
+            <button class="number ebtn" value=")" onclick="display(')')">)</button>
+            <!-- <button class="operator ebtn"><sup>2</sup>&radic;X</button>
+            <button class="operator ebtn">+/-</button> -->
+
+
+
+
+            <button class="number" value="7" onclick="display('7')">7</button>
+            <button class="number" value="8" onclick="display('8')">8</button>
+            <button class="number" value="9" onclick="display('9')">9</button>
+            <button class="operator" value="*" onclick="display('*')">&times;</button>
+            <button class="operator" value="/" onclick="display('/')">&#247;</button>
+            <button class="number" value="4" onclick="display('4')">4</button>
+            <button class="number" value="5" onclick="display('5')">5</button>
+            <button class="number" value="6" onclick="display('6')">6</button>
+            <button class="operator" value="-" onclick="display('+')">+</button>
+            <button class="operator" value="pre" onclick="per()">%</button>
+            <button class="number" value="1" onclick="display('1')">1</button>
+            <button class="number" value="2" onclick="display('2')">2</button>
+            <button class="number" value="2" onclick="display('3')">3</button>
+            <button class="number" value="2" onclick="display('-')">-</button>
+            <button class="operator" value="clear" onclick="cube()">x&#179;</button>
+            <button class="number" value="dot" onclick="display('.')">.</button>
+            <button class="number" value="0" onclick="display('0')">0</button>
+            <button class="operator equal" id="equ" onclick="Answer()">=</button>
+            <button class="operator" value="clear" onclick="square()">x&#178;</button>
+
+        </div>
+    </div>
+    <script>
+        let outputScreen = document.getElementById("output-screen");
+
+        function display(num) {
+            if(num== "*" || num== "." || num== "+" ||num== "%" ||num== "/"){
+                if (!outputScreen.value == "") {
+                    outputScreen.value += num;
+                }
+            }
+            else{
+                outputScreen.value += num;
+            }
+            
+        }
+
+        let Answer = () => {
+            try {
+                outputScreen.value = eval(outputScreen.value)
+            } catch (err) {
+                alert("Invalid")
+            }
+        }
+
+        clr = () => {
+            outputScreen.value = "";
+        }
+        del = () => {
+            outputScreen.value = outputScreen.value.slice(0, -1);
+        }
+        cube = () => {
+            outputScreen.value = Math.pow(outputScreen.value, 3);
+        }
+        square = () => {
+            outputScreen.value = Math.pow(outputScreen.value, 2);
+        }
+        squareroot = () => {
+            outputScreen.value = Math.pow(outputScreen.value, 1/2);
+        }
+        cuberoot = () => {
+            outputScreen.value = Math.pow(outputScreen.value, 1/3);
+        }
+        sin = () => {
+            outputScreen.value = Math.sin(outputScreen.value);
+        }
+        cos = () => {
+            outputScreen.value = Math.cos(outputScreen.value);
+        }
+        tan = () => {
+            outputScreen.value = Math.tan(outputScreen.value);
+        }
+    
+
+    </script>
+</body>
+
+</html>
